@@ -1,0 +1,43 @@
+#include <iostream>
+#include "StaticArray.cpp"
+#include "DynamicArray.cpp"
+#include "StringOperations.cpp"
+
+void runTests() {
+    // Test Case 1: Static Array Operations
+    StaticArray staticArray(5);
+    staticArray.insert(1);
+    staticArray.insert(2);
+    staticArray.deleteValue(1);
+    staticArray.traverse();
+
+    // Test Case 2: Dynamic Array Operations
+    DynamicArray dynamicArray;
+    dynamicArray.insert(1);
+    dynamicArray.insert(2);
+    dynamicArray.deleteValue(1);
+    dynamicArray.traverse();
+
+    // Test Case 3: String Operations
+    StringOperations stringOperations;
+    std::string str1 = "hello";
+    std::string str2 = "world";
+    std::string concatenated = stringOperations.concatenate(str1, str2);
+    std::string substring = stringOperations.substring(concatenated, 3, 2);
+    bool comparison = stringOperations.compare(str1, str2);
+    std::cout << "Concatenated: " << concatenated << std::endl;
+    std::cout << "Substring: " << substring << std::endl;
+    std::cout << "Comparison: " << comparison << std::endl;
+
+    // Test Case 4: Character Frequency
+    std::string input = "hello";
+    std::map<char, int> frequency = stringOperations.characterFrequency(input);
+    for (auto& pair : frequency) {
+        std::cout << pair.first << ": " << pair.second << std::endl;
+    }
+}
+
+int main() {
+    runTests();
+    return 0;
+}
